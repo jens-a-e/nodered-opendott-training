@@ -2,7 +2,9 @@
     "name": "OpenDoTT-NodeRed-Training",
     "description": "Flows from the Traning with Davide",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-aedes": "0.5.2"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
