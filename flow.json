@@ -639,14 +639,14 @@
         "retain": "",
         "broker": "abf1da65.1b0658",
         "x": 490,
-        "y": 420,
+        "y": 380,
         "wires": []
     },
     {
         "id": "2d28b5c6.ef6f7a",
         "type": "inject",
         "z": "c57f0e99.78ac5",
-        "name": "",
+        "name": "Hello OpenDoTT from Kiel :)",
         "props": [
             {
                 "p": "payload"
@@ -661,9 +661,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "Hello OpenDoTT!",
+        "payload": "Hello OpenDoTT from Kiel :)",
         "payloadType": "str",
-        "x": 180,
+        "x": 220,
         "y": 380,
         "wires": [
             [
