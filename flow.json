@@ -1,1 +1,285 @@
-[]
+[
+    {
+        "id": "10bf107a.cf557",
+        "type": "tab",
+        "label": "Debug Basics",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d24ab719.39de28",
+        "type": "inject",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "50",
+                "vt": "num"
+            },
+            {
+                "p": "davide",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "OpenDoTT!",
+        "payloadType": "str",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "36e0f0d4.909dd",
+                "bdb2f0b0.d9c9",
+                "e75d32a4.cc8f8",
+                "361e4f63.64c4c",
+                "df07ecc5.892ee",
+                "21120cbc.0aadb4",
+                "1e7f0d.4a7030f4"
+            ]
+        ]
+    },
+    {
+        "id": "36e0f0d4.909dd",
+        "type": "debug",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bdb2f0b0.d9c9",
+        "type": "debug",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "e75d32a4.cc8f8",
+        "type": "debug",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "361e4f63.64c4c",
+        "type": "switch",
+        "z": "10bf107a.cf557",
+        "name": "is \"davide\" true?",
+        "property": "davide",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "261cb50f.7514fa"
+            ],
+            [
+                "d9b11e64.bfd2e"
+            ]
+        ]
+    },
+    {
+        "id": "df07ecc5.892ee",
+        "type": "switch",
+        "z": "10bf107a.cf557",
+        "name": "is topic more than 40?",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "40",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "ffdc9089.e0dc2"
+            ]
+        ]
+    },
+    {
+        "id": "261cb50f.7514fa",
+        "type": "debug",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d9b11e64.bfd2e",
+        "type": "debug",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ffdc9089.e0dc2",
+        "type": "debug",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "21120cbc.0aadb4",
+        "type": "range",
+        "z": "10bf107a.cf557",
+        "minin": "0",
+        "maxin": "1023",
+        "minout": "0",
+        "maxout": "255",
+        "action": "scale",
+        "round": false,
+        "property": "topic",
+        "name": "Map msg.topic ",
+        "x": 380,
+        "y": 340,
+        "wires": [
+            [
+                "5affdfcf.b1525"
+            ]
+        ]
+    },
+    {
+        "id": "5affdfcf.b1525",
+        "type": "debug",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1e7f0d.4a7030f4",
+        "type": "change",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "number",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "16402598.78c2da"
+            ]
+        ]
+    },
+    {
+        "id": "16402598.78c2da",
+        "type": "debug",
+        "z": "10bf107a.cf557",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 380,
+        "wires": []
+    }
+]
