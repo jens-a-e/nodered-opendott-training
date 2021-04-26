@@ -7,6 +7,34 @@
         "info": ""
     },
     {
+        "id": "c57f0e99.78ac5",
+        "type": "tab",
+        "label": "MQTT Example",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "abf1da65.1b0658",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
         "id": "d24ab719.39de28",
         "type": "inject",
         "z": "10bf107a.cf557",
@@ -340,6 +368,18 @@
         "type": "inject",
         "z": "10bf107a.cf557",
         "name": "",
+        "props": [
+            {
+                "p": "payload",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "string"
+            }
+        ],
         "repeat": "",
         "crontab": "",
         "once": false,
@@ -551,6 +591,110 @@
         "statusType": "auto",
         "x": 670,
         "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7efbcbb3.684244",
+        "type": "aedes broker",
+        "z": "c57f0e99.78ac5",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_port": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 450,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e4fae82.78b35",
+        "type": "mqtt in",
+        "z": "c57f0e99.78ac5",
+        "name": "",
+        "topic": "/openDoTT",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "abf1da65.1b0658",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "7817b505.5a875c"
+            ]
+        ]
+    },
+    {
+        "id": "313bfcce.2399f4",
+        "type": "mqtt out",
+        "z": "c57f0e99.78ac5",
+        "name": "",
+        "topic": "/openDoTT",
+        "qos": "",
+        "retain": "",
+        "broker": "abf1da65.1b0658",
+        "x": 490,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "2d28b5c6.ef6f7a",
+        "type": "inject",
+        "z": "c57f0e99.78ac5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello OpenDoTT!",
+        "payloadType": "str",
+        "x": 180,
+        "y": 380,
+        "wires": [
+            [
+                "313bfcce.2399f4"
+            ]
+        ]
+    },
+    {
+        "id": "7817b505.5a875c",
+        "type": "debug",
+        "z": "c57f0e99.78ac5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bb60f95c.62de68",
+        "type": "comment",
+        "z": "c57f0e99.78ac5",
+        "name": "Basic MQTT Client in Node-RED",
+        "info": "",
+        "x": 200,
+        "y": 180,
         "wires": []
     }
 ]
